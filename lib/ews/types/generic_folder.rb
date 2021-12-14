@@ -380,7 +380,7 @@ module Viewpoint::EWS::Types
           type = i.keys.first
           items << class_by_name(type).new(ews, i[type], self)
         end
-        items
+        { items: items, page: rm.root_folder.root.first.last }
       else
         raise EwsError, "Could not retrieve folder. #{rm.code}: #{rm.message_text}"
       end
