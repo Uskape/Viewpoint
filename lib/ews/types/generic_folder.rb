@@ -183,7 +183,7 @@ module Viewpoint::EWS::Types
     #   For :deleted and :read_flag_change items a simple hash with :id and
     #   :change_key is returned.
     #   See: http://msdn.microsoft.com/en-us/library/aa565609.aspx
-    def sync_items!(sync_state = nil, sync_amount = 256, sync_all = false, opts = {})
+    def sync_items!(sync_state = nil, sync_amount = 5000, sync_all = false, opts = {})
       item_shape = opts.has_key?(:item_shape) ? opts.delete(:item_shape) : {:base_shape => :default}
       sync_state ||= @sync_state
 
