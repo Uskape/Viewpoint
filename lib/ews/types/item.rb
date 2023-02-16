@@ -383,7 +383,7 @@ module Viewpoint::EWS::Types
       users.collect do |u|
         u[:attendee][:elems].collect do |a|
           if a[:mailbox].present?
-            response_type = u[:attendee][:elems].map {|k| k if p k[:response_type].present? }.compact.first
+            response_type = u[:attendee][:elems].map {|k| k if k[:response_type].present? }.compact.first
             mailbox = a[:mailbox][:elems] << response_type
             build_mailbox_user(mailbox)
           end
